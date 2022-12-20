@@ -9,4 +9,6 @@ import ar.com.practica.dominian.Users;
 
 public interface UserService {
 	public Optional<Users> obetenerPorId(Long id);
+
+	public Users findByName(String name);
 }

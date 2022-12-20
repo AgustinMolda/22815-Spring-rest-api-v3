@@ -6,6 +6,8 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -84,7 +86,34 @@ public class OrdenResource {
 				
 				return ResponseEntity.ok(ordenDB);
 			}
-	
 				
-
+	
+			@GetMapping("/orden/{id}")
+		public ResponseEntity<Ordenes> get(
+				@PathVariable(name = "id", required = true) 
+				
+				Long id){
+					Ordenes orden =	this.ordenService.getById(id);
+					
+					if(orden == null || orden.getId() == null) {
+						return	ResponseEntity.notFound().build();
+					}
+					
+					return ResponseEntity.ok(orden);
+			
+		}
+				
+			@DeleteMapping("/orden/{id}")
+			public ResponseEntity<Ordenes> delete(
+					@PathVariable(name = "id", required = true) Long id
+					){
+							try {
+								this.ordenService.eliminar(id);
+							} catch (RuntimeException re) {
+								System.out.println(re.getMessage());
+							}
+							
+							
+							return ResponseEntity.ok(null);
+			}
 }

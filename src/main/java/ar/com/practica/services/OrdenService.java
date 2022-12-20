@@ -11,6 +11,8 @@ public interface OrdenService {
 
 	public void update(Ordenes ordenDB);
 
+	public void eliminar(Long id);
+
 	
 
 	
