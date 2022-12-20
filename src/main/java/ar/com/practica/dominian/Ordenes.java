@@ -48,7 +48,12 @@ public class Ordenes {
 	private Float montoTotal;
 	
 	@ManyToOne
-	@JoinColumn(name = "cupones_id", referencedColumnName = "id", nullable = true )
+	@JoinColumn(name = "cupones_id", referencedColumnName = "id" /* nullable = true*/ )
 	private Cupones cupon;
+
+	public boolean isEstadoFinal() {
+		return getEstado().getEstadoFinal().equals(1);
+		
+	}
 	
 }

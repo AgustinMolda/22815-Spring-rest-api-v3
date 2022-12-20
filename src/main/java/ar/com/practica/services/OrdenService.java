@@ -9,5 +9,9 @@ public interface OrdenService {
 
 	public Ordenes getById(Long id);
 
+	public void update(Ordenes ordenDB);
+
+	
+
 	
 }
