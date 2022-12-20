@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.com.practica.dominian.Users;
 import ar.com.practica.repository.UserRepository;
 
-
-
 @Service
 @Transactional
 public class UsersServiceImpl implements UserService {
