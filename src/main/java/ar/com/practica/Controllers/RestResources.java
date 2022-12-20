@@ -1,4 +1,4 @@
-package ar.com.practica.Controllers;
+package ar.com.practica.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
